@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SubRedditStatus.API\SubRedditStatus.API.csproj" />
     <ProjectReference Include="..\SubRedditStatus.Shared\SubRedditStatus.Shared.csproj" />
-    <ProjectReference Include="..\SubRedditStatus\SubRedditStatus.API.csproj" />
   </ItemGroup>
 
 </Project>

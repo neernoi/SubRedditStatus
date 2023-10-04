@@ -15,7 +15,7 @@ class Program
     static async Task Main(string[] args)
     {
         // Make a request to the Reddit API to get the top posts from a subreddit
-        string subreddit = "funny"; // Change to the desired subreddit
+        string subreddit = "science"; // Change to the desired subreddit
 
         int requestCounter = 1;
         int requestsRemaining = 599;
@@ -87,7 +87,7 @@ class Program
                 await Task.Delay((resetDuration + 2) * 1000);
             }
             else
-                await Task.Delay(300);
+                await Task.Delay(350);
         }
     }
 
@@ -116,7 +116,7 @@ class Program
         // Iterate through the top posts and count user posts
         await Task.Run(() =>
         {
-            Parallel.ForEach(topPosts, post =>
+            Parallel.ForEach(topPosts, new ParallelOptions { MaxDegreeOfParallelism = 3 }, post =>
             {
                 lock (userPostCount)
                 {
